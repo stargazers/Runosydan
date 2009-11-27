@@ -294,10 +294,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				&& $ret[0]['homepage'] != '' )
 			{
 				echo '<br><a href="' . $ret[0]['homepage'];
-				echo '">' . $ret[0]['homepage'] . '</a><br>';
+				echo '">' . $ret[0]['homepage'] . '</a>';
 			}
 
-			echo 'Runoja: ' . $numPoems . '<br><br>';
+			echo '<br>Runoja: ' . $numPoems . '<br><br>';
 
 			// If we are on own page, then we show some useful
 			// links too, eg. possibility to change our informations.
