@@ -1,0 +1,300 @@
+/*
+Stylesheet. Part of Runosydan.net.
+Copyright (C) 2009	Aleksi Räsänen <aleksi.rasanen@runosydan.net>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+body
+{
+	background-color: white;
+	color: black;
+}
+
+.menu
+{
+	width: 600px;
+	padding-left: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.menu a:hover
+{
+	text-decoration: none;
+	background-color: #aba8a8;
+	padding-top: 3px;
+}
+
+.menu a:link, .menu a:visited
+{
+	text-decoration: none;
+	color: #534a4a;
+	margin-left: 30px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.poets_list
+{
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.poets_list a:link, .poets_list a:visited, .login a:link, .login a:visited
+{
+	color: black;
+	text-decoration: none;
+	margin-left: 20px;
+}
+
+.remove_poem a:link, .remove_poem a:visited
+{
+	color: black;
+	text-decoration: none;
+}
+
+.message
+{
+	margin-top: 20px;
+	text-align: center;
+	width: 100%;
+}
+
+.remove_poem a:hover
+{
+	text-decoration: underline;
+}
+
+.login a:hover
+{
+	text-decoration: underline;
+}
+
+.poets_list a:hover
+{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.letter
+{
+	font-size: 220%;
+	border-top: 5px solid #534a4a;
+	border-bottom: 3px solid #534a4a;
+}
+
+.poem_actions a:link, .poem_actions a:visited, 
+.poems a:link, .poems a:visited
+{
+	color: #1a1220;
+	text-decoration: none;
+	font-size: 80%;
+}
+
+/* Poems when listed on "Oma sivu" */
+.poem a:link, .poem a:visited
+{
+	color: #1a1220;
+	text-decoration: none;
+}
+
+.change_page
+{
+	text-align: center;
+	font-size: 90%;
+}
+
+.poem_actions a:hover, .poem a:hover, .poems a:hover
+{
+	text-decoration: underline;
+}
+
+.poems, .ownpage, .mainpage_div, .login, .register, .poet_info, 
+.edit_poem, .remove_poem, .edit_profile
+{
+	width: 600px;
+	border: 2px dotted gray;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.remove_poem
+{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;c:w
+}
+
+.register_message
+{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.own_info
+{
+	font-size: 80%;
+}
+
+.own_info a:link, .own_info a:visited
+{
+	color: #1a1220;
+	text-decoration: none;
+}
+
+.own_info a:hover
+{
+	text-decoration: underline;
+}
+
+.login table, .register table, .ownpage table, .edit_poem table, 
+.edit_profile table, .poet_info table
+{
+	width: 500px;
+	margin-left: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.poet_info table
+{
+	font-size: 90%;
+}
+
+.edit_profile input[type=text], .edit_profile input[type=password],
+.register input[type=text], .register input[type=password]
+{
+	width: 230px;
+	border: 1px dotted gray;
+}
+
+/* Login form input boxes */
+.login input[type=text], .login input[type=password]
+{
+	width: 200px;
+	border: 1px dotted gray;
+}
+
+/* Submit-buttons */
+input[type=submit]
+{
+	background-color: white;
+	border: 1px solid black;
+	padding: 2px;
+	width: 100px;
+	font-family: Verdana, Genova, Arial, sans-serif;
+	font-size: 80%;
+}
+
+.message table
+{
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.ownpage textarea
+{
+	width: 360px;
+	height: 100px;
+	border: 1px dotted gray;
+}
+
+.edit_poem textarea
+{
+	width: 360px;
+	height: 220px;
+	border: 1px dotted gray;
+}
+
+.ownpage input[type=text], .edit_poem input[type=text]
+{
+	width: 360px;
+	border: 1px dotted gray;
+}
+
+.poet_name
+{
+	float: right;
+	margin-right: 20px;
+}
+
+.poet_name a:link, .poet_name a:visited
+{
+	color: #000cd0;
+	text-decoration: none
+}
+
+.poem_header
+{
+	color: #534a4a;
+	font-size: 150%;
+}
+
+.poem_header:first-letter
+{
+	font-size: 160%;
+}
+
+.poem
+{
+	font-family: Verdana, Genova, Arial, sans-serif;
+	color: #1a1220;
+}
+
+.poem_added
+{
+	font-size: 70%;
+}
+
+/* Div where is link where we can go back to user poems from
+   his/her profile page. */
+.back_to_poems
+{
+	text-align: center;
+	font-size: 90%;
+	margin-bottom: 20px;
+}
+
+/* Link where we can go back to user poems from his/her profile page */
+.back_to_poems a:link, .back_to_poems a:visited
+{
+	color: black;
+	text-decoration: none;
+	text-align: center;
+}
+
+/* Link where we can go back to user poems from his/her profile page */
+.back_to_poems a:hover
+{
+	text-decoration: underline;
+}
+
+/* Bottom note what is shown on profile editing where we tell that
+   password will not be changed if user leaves fields empty */
+.bottom_note
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+	font-size: 90%;
+}
