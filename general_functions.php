@@ -166,7 +166,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					if( isset( $_SESSION['username'] ) )
 					{
 						echo '<a href="add_comment.php?id=' . $cur['id'] 
-							. '">Jätä kommentti</a> / ';
+							. '&amp;page=' . $page . '">Jätä kommentti</a> / ';
 					}
 					echo '<a href="#" id="comment' . $cur['id'] 
 						. '" class="showComments" onClick="return false;">'
