@@ -77,7 +77,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				create_site_top();
 				create_top_menu();
 				echo '<div class="register">';
+
+				// If message icon is app_logout then there
+				// was problem while registering. We must give a link
+				// where user can go back to registering page.
+				if( $_SESSION['message_icon'] == 'graphics/32px-Crystal_Clear_app_logout.png' )
+					$back_to_register = true;
+				else
+					$back_to_register = false;
+
 				show_message();
+
+				// Show correct link, depending on how succesfully user
+				// registering was.
+				if( $back_to_register )
+					echo '<a href="register.php">Takaisin rekisteröitymissivulle</a><br><br>';
+				else
+					echo '<a href="login.php">Kirjautumissivulle</a><br><br>';
+
 				echo '</div>';
 				create_site_bottom();
 				die();
@@ -110,11 +127,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 		// Field names 
 		$field_names = array(
-			'username' => 'Käyttäjätunnus',
+			'username' => 'Käyttäjätunnus (*)',
 			'firstname' => 'Etunimi',
 			'lastname' => 'Sukunimi',
-			'password' => 'Salasana',
-			'password_again' => 'Salasana uudelleen',
+			'password' => 'Salasana (*)',
+			'password_again' => 'Salasana uudelleen (*)',
 			'city' => 'Kaupunki',
 			'homepage' => 'Kotisivu',
 			'birthdate' => 'Syntymäpäivä (pv.kk.vvvvv)',
@@ -153,6 +170,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 		echo '</table>';
 		echo '</form>';
+		echo '<p>Vain tähdellä merkityt kohdat ovat pakollisia.</p>';
 		echo '</div>';
 	}
 

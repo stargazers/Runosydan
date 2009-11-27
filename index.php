@@ -51,7 +51,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<h3>Teknistä tietoa</h3>
 	Tämä sivu on toteutettu käyttäen PHP-ohjelmointikieltä ja tietokantana
 	MySQL:ää. Sivuston lähdekoodit on julkaistu GNU AGPL -lisenssillä ja
-	ne löytyvät <a href="http://github.com/stargazers/Runosydan/tree/master">GitHubista</a>.<br><br>
+	ne löytyvät <a href="http://github.com/stargazers/Runosydan/tree/master">GitHubista</a>. 
+	Kirjautuneille käyttäjille näkyvissä olevat ikonit runoja lisätessä/muokatessa sekä poistaessa
+	on tehnyt Everaldo Coelho ja ne löytyvät Crystal Clear -nimisestä paketista ja ovat 
+	LGPL-lisenssin alaisia.<br>
+
+	<h3>Rekisteriseloste</h3>
+	Voit katsoa rekisteriselosteen <a href="privacy_policy.php">täältä</a>.<br><br>
 	</div>
 </body>
 </html>
