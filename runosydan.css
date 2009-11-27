@@ -124,7 +124,8 @@ body
 }
 
 .poems, .ownpage, .mainpage_div, .login, .register, .poet_info, 
-.edit_poem, .remove_poem, .edit_profile, .privacy_policy, .remove_profile
+.edit_poem, .remove_poem, .edit_profile, .privacy_policy, .remove_profile,
+.download, .leave_comment
 {
 	width: 600px;
 	border: 2px dotted gray;
@@ -218,7 +219,7 @@ input[type=submit]
 	padding-bottom: 0px;
 }
 
-.ownpage textarea
+.ownpage textarea, .leave_comment textarea
 {
 	width: 360px;
 	height: 100px;
@@ -303,4 +304,16 @@ input[type=submit]
 	margin-right: auto;
 	width: 400px;
 	font-size: 90%;
+}
+
+.poem_comment
+{
+	color: #ac1220;
+	text-decoration: none;
+	font-size: 80%;
+}
+
+.poem_comment a:link, .poem_comment a:visited
+{
+	font-size: 100%;
 }

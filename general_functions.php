@@ -134,6 +134,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				$cur['poem'] = str_replace( '<br />', '<br>', 
 					$cur['poem'] );
 				echo stripslashes( $cur['poem'] );
+
 				echo '<p class="poem_added">';
 				echo $cur['added'];
 				echo '</p>';
@@ -151,6 +152,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					echo '<a href="remove_poem.php?id='
 						. $cur['id'] . '">Poista</a>';
 					echo '</p>';
+				}
+				else
+				{
+					echo '<p class="poem_actions">';
+					echo '<a href="add_comment.php?id=' . $cur['id'] 
+						. '">Jätä kommentti</a>';
+					echo '</p>';
+				}
+
+				$comments = $cPoem->getComments( $cur['id'] );
+				$num = count( $comments );
+
+				for( $i=0; $i < $num; $i++ )
+				{
+					echo '<p class="poem_comment">';
+					echo $comments[$i]['comment'];
+					echo '<br>';
+					echo 'Kommentoija: <a href="poet.php?id=' . $comments[$i]['commenter_id'] 
+						. '">' . $comments[$i]['username'] . '</a><br>';
+					echo $comments[$i]['date_added'];
 				}
 			}
 
@@ -304,6 +325,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			if( $_SESSION['id'] == $id )
 			{
 				echo '<a href="edit_profile.php">Muuta tietoja</a>';
+				echo ' / ';
+				echo '<a href="download.php">Lataa runot</a>';
 				echo ' / ';
 				echo '<a href="remove_profile.php">Poista käyttäjätunnus</a>';
 			}

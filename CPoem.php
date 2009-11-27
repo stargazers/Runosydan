@@ -90,6 +90,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			return null;
 		}
 
+		public function getComments( $poem_id )
+		{
+			$q = 'SELECT c.commenter_id, c.comment, c.date_added, u.username FROM rs_comments c LEFT JOIN rs_users u ON u.id=c.commenter_id WHERE c.poem_id=' . $poem_id . ' ORDER BY c.date_added';
+
+			try
+			{
+				$ret = $this->db->query( $q );
+
+				if( $this->db->numRows( $ret ) > 0 )
+				{
+					$ret = $this->db->fetchAssoc( $ret );
+					return $ret;
+				}
+			}
+			catch( Exception $e ) 
+			{
+
+			}
+		}
+
 		// *********************************************
 		//	getPoemByID
 		//
