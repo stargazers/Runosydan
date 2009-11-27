@@ -21,6 +21,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	require 'general_functions.php';
 	require 'CPoem.php';
 
+	// This site cannot be seen if user is not logged in.
+	if(! isset( $_SESSION['username'] ) )
+		header( 'Location: index.php' );
+
 	$cPoem = new CPoem( $db, $_SESSION );
 
 	// First we want to check if we have GET-parameter "accept".

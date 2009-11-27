@@ -26,6 +26,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// *********************************************
 	function create_poem_adding_form()
 	{
+		// Make sure that user has not just removed her/his
+		// account and then try to add poems or something
+		// like that...
+		if(! isset( $_SESSION['username'] ) )
+			return;
+
 		echo '<form action="addpoem.php" method="post">';
 		echo '<table>';
 		echo '<tr><td>Runon nimi:</td>';
@@ -76,6 +82,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 	session_start();
+
+	// Only logged user can see this page.
+	if(! isset( $_SESSION['username'] ) )
+		header( 'Location: index.php' );
+
 	require 'general_functions.php';
 
 	create_site_top();

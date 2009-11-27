@@ -100,13 +100,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '<td><input type="text" name="username"></td></tr>';
 		echo '<tr><td>Salasana</td>';
 		echo '<td><input type="password" name="password"></td></tr>';
-		echo '';
 		echo '<tr><td colspan="2"><input type="submit" '
 			. 'value="Kirjaudu"></td>';
 		echo '</tr>';
 		echo '</table>';
 		echo '</form>';
-		echo '<a href="register.php">Luo uusi käyttäjätunnus</a>';
+		echo '<a href="register.php">Luo uusi käyttäjätunnus</a><br><br>';
 	}
 
 	session_start();

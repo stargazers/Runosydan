@@ -51,6 +51,7 @@ body
 	width: 600px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 50px;
 }
 
 .poets_list a:link, .poets_list a:visited, .login a:link, .login a:visited
@@ -123,7 +124,7 @@ body
 }
 
 .poems, .ownpage, .mainpage_div, .login, .register, .poet_info, 
-.edit_poem, .remove_poem, .edit_profile, .privacy_policy
+.edit_poem, .remove_poem, .edit_profile, .privacy_policy, .remove_profile
 {
 	width: 600px;
 	border: 2px dotted gray;
@@ -131,6 +132,11 @@ body
 	padding-right: 30px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.mainpage_div
+{
+	text-align: justify;
 }
 
 .remove_poem

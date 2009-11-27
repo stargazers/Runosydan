@@ -36,11 +36,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	Sivuston tarkoituksena on toimia julkaisukanavana omille runoillesi
 	ja kirjoitelmillesi.<br><br>
 	Mikäli et vielä ole rekisteröitynyt, voit rekisteröityä sivustolle
-	ylälaidasta löytyvän Kirjaudu-sivun kautta.<br><br>
+	ylälaidasta löytyvän Kirjaudu-sivun kautta.
 	Jos haluat vain lukea runoilijoiden tuotoksia, voit selata niitä
 	ilman rekisteröitymistä ylälaidan Runoilijat-sivun kautta.<br><br>
 
 	Hauskoja hetkiä runouden parissa!<br>
+
+	<h3>Miksi sivusto on olemassa?</h3>
+	Tällä hetkellä on netissä useampiakin sivustoja joissa käyttäjät
+	voivat julkaista omia kirjoituksiaan. Tämä sivusto on tehty siitäkin
+	huolimatta, mutta erilaisia tarpeita vastaaviksi. Tarpeet joita
+	itselläni oli runosivustolta:
+	<ul>
+		<li><a href="http://fsfe.org/about/basics/freesoftware.fi.html" target="_new">Vapaa lähdekoodi</a> 
+		(<a href="http://www.gnu.org/licenses/agpl-3.0.txt" target="_new">GNU AGPL</a>)</li>
+		<li>Ei rajoituksia runojen määrälle päivää kohden</li>
+		<li>Ei rajoituksia runojen kokonaismäärälle</li>
+		<li>Mahdollisuus ladata kaikki omat runot 
+		helposti tekstitiedostona ilman että joudun selaamaan
+		kaikki sivut yksi kerrallaan läpi (varmuuskopiointia varten
+		sekä jos tahdon vaihtaa palvelusta toiseen)</li>
+	</ul>
 
 	<h3>Palaute</h3>
 	Sivustoon liittyviä vikailmoituksia sekä kehitysideoita voi lähettää 
@@ -54,7 +70,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	ne löytyvät <a href="http://github.com/stargazers/Runosydan/tree/master">GitHubista</a>. 
 	Kirjautuneille käyttäjille näkyvissä olevat ikonit runoja lisätessä/muokatessa sekä poistaessa
 	on tehnyt Everaldo Coelho ja ne löytyvät Crystal Clear -nimisestä paketista ja ovat 
-	LGPL-lisenssin alaisia.<br>
+	LGPL-lisenssin alaisia. Sivujen ohjelmointi on tehty käyttäen VIM-editoria.<br>
 
 	<h3>Rekisteriseloste</h3>
 	Voit katsoa rekisteriselosteen <a href="privacy_policy.php">täältä</a>.<br><br>

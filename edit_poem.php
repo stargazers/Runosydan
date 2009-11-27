@@ -21,6 +21,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	require 'general_functions.php';
 	require 'CPoem.php';
 
+	// This site cannot be seen if user is not logged in.
+	if(! isset( $_SESSION['username'] ) )
+		header( 'Location: index.php' );
+
 	$cPoem = new CPoem( $db, $_SESSION );
 
 	// First we must check if POST-data is given. If there is POST-data,
@@ -120,9 +124,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			// given ID at all. If it is other than null, then that
 			// poem exists, but does not belong to logged user.
 			if( is_null( $owner_id ) )
-				echo 'Runoa ei löytynyt annetulla ID:llä!';
+				echo '<br>Runoa ei löytynyt annetulla ID:llä!<br><br>';
 			else
-				echo 'Sinulla ei ole oikeutta muokata muiden runoja!';
+				echo '<br>Sinulla ei ole oikeutta muokata muiden runoja!<br><br>';
 		}
 	}
 

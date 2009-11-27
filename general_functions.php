@@ -299,9 +299,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 			echo 'Runoja: ' . $numPoems . '<br><br>';
 
+			// If we are on own page, then we show some useful
+			// links too, eg. possibility to change our informations.
 			if( $_SESSION['id'] == $id )
 			{
 				echo '<a href="edit_profile.php">Muuta tietoja</a>';
+				echo ' / ';
+				echo '<a href="remove_profile.php">Poista käyttäjätunnus</a>';
 			}
 		}
 		echo '</div>';

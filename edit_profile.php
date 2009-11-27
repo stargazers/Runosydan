@@ -216,6 +216,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 	require 'general_functions.php';
 
+	// This site cannot be seen if user is not logged in.
+	if(! isset( $_SESSION['username'] ) )
+		header( 'Location: index.php' );
+
 	// Check if user has already sent POST-data.
 	if( isset( $_POST ) && ! empty( $_POST ) )
 		check_post_values( $db,  $_POST );

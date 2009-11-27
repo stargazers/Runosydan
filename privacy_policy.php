@@ -43,7 +43,7 @@ echo '<p>Palvelun ylläpitoon tarvittavat tiedot.</p>';
 
 echo '<h4>5. Rekisterin tietosisältö</h4>';
 echo '<p><b>Pakolliset tiedot:</b> käyttäjätunnus ja salasana.<br>';
-echo '<b>Vapaaehtoiset tiedot:</b> Etunimi, sukunimi, kaupunki, kotisivu, sähköpostiosoite, syntmäpäivä.</p>';
+echo '<b>Vapaaehtoiset tiedot:</b> Etunimi, sukunimi, kaupunki, kotisivu, sähköpostiosoite, syntymäpäivä.</p>';
 
 echo '<h4>6. Säännönmukaiset tietolähteet</h4>';
 echo '<p>Käyttäjien itsensä antamat tiedot</p>';
