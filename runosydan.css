@@ -310,7 +310,8 @@ input[type=submit]
 {
 	color: #ac1220;
 	text-decoration: none;
-	font-size: 80%;
+	font-size: 70%;
+	display: none;
 }
 
 .poem_comment a:link, .poem_comment a:visited

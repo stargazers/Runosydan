@@ -139,6 +139,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				echo $cur['added'];
 				echo '</p>';
 
+				// Get comments for this poem.
+				$comments = $cPoem->getComments( $cur['id'] );
+				$num = count( $comments );
+
 				// If we are browsing our own poems, then we should
 				// add also links where we can remove and 
 				// modify those poems.
@@ -150,29 +154,39 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 						. $cur['id'] . '">Muokkaa</a>';
 					echo ' / ';
 					echo '<a href="remove_poem.php?id='
-						. $cur['id'] . '">Poista</a>';
+						. $cur['id'] . '">Poista</a> / ';
+					echo '<a href="#" id="comment' . $cur['id'] 
+						. '" class="showComments" onClick="return false;">'
+						. 'Näytä kommentit (' . $num . ')</a>';
 					echo '</p>';
 				}
 				else
 				{
 					echo '<p class="poem_actions">';
-					echo '<a href="add_comment.php?id=' . $cur['id'] 
-						. '">Jätä kommentti</a>';
+					if( isset( $_SESSION['username'] ) )
+					{
+						echo '<a href="add_comment.php?id=' . $cur['id'] 
+							. '">Jätä kommentti</a> / ';
+					}
+					echo '<a href="#" id="comment' . $cur['id'] 
+						. '" class="showComments" onClick="return false;">'
+						. 'Näytä kommentit (' . $num . ')</a>';
 					echo '</p>';
 				}
 
-				$comments = $cPoem->getComments( $cur['id'] );
-				$num = count( $comments );
-
+				// Generate unique ID so we can toggle comments
+				// to visible and hidden by this unique ID.
+				echo '<div class="poem_comment" id="poem_comment' . $cur['id'] . '">';
 				for( $i=0; $i < $num; $i++ )
 				{
-					echo '<p class="poem_comment">';
+					echo '<p>';
 					echo $comments[$i]['comment'];
 					echo '<br>';
 					echo 'Kommentoija: <a href="poet.php?id=' . $comments[$i]['commenter_id'] 
 						. '">' . $comments[$i]['username'] . '</a><br>';
 					echo $comments[$i]['date_added'];
 				}
+				echo '</div>';
 			}
 
 			echo '<hr>';
@@ -258,6 +272,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">';
 		echo '<html>';
 		echo '<head>';
+		echo '<script type="text/javascript" src="jquery-1.3.2.min.js"></script>';
+
+		echo '<script type="text/javascript">';
+		echo '$(document).ready( function() {';
+
+		// This function will be called when user clicks "Näytä kommentit"
+		// and this will display/hide comments.
+		echo '  $("a.showComments").click( function() {';
+		echo '    var commentbox_id = $(this).attr("id");';
+		echo '    $("#poem_" + commentbox_id).toggle();';
+		echo ' } );';
+		echo '} );';
+		echo '</script>';
 		echo '<title>Runosydän</title>';
 		echo '<meta http-equiv="Content-Type" content="text/xhtml;charset=utf-8">';
 		echo '<link rel="stylesheet" type="text/css" href="runosydan.css">';
