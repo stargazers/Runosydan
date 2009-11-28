@@ -61,7 +61,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		{
 			$q = 'select c.id, p.id, p.user_id FROM rs_comments c LEFT JOIN '
 				. 'rs_poem p ON c.poem_id = p.id WHERE p.user_id=' . $id 
-				. ' AND c.is_seen IS NULL OR c.is_seen != 1';
+				. ' AND ( c.is_seen IS NULL OR c.is_seen != 1 )';
 
 			try 
 			{

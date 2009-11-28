@@ -40,8 +40,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			. 'painiketta sekä antamalla salasanasi alempana olevaan laatikkoon. '
 			. '<br><br><b>Huomaa että käyttäjätunnuksen palauttaminen '
 			. 'ei ole mahdollista</b>, vaan kaikki tiedot poistetaan '
-			. 'tietokannasta. Voit tietenkin myöhemmin tehdä käyttäjätunnuksen '
-			. 'uudelleen mikäli tahdot.</p>';
+			. 'tietokannasta (mukaanlukien kirjoittamasi kommentit sekä ' 
+			. 'saamasi kommentit). Voit tietenkin myöhemmin tehdä '
+			. 'käyttäjätunnuksen uudelleen mikäli tahdot.</p>';
 		echo '<form method="post" action="remove_profile.php?action=remove">';
 		echo 'Salasanasi: <input type="password" name="password">&nbsp;&nbsp;';
 		echo '<input type="submit" value="Poista tunnus">';
@@ -63,22 +64,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			// that is stored to database.
 			if( $ret[0]['password'] == sha1( $_POST['password'] ) )
 			{
-				// Remove user account
-				$q = 'DELETE FROM rs_users WHERE id="' . $_SESSION['id'] . '"';
 				try 
 				{
+					// Remove user account
+					$q = 'DELETE FROM rs_users WHERE id=' 
+						. $_SESSION['id'];
 					$db->query( $q );
-				} 
-				catch( Exception $e ) 
-				{
-					echo 'Virhe tietokantayhteydessä!';
-				}
 
-				// Remove all poems by this user
-				$q = 'DELETE FROM rs_poem WHERE user_id="' . $_SESSION['id'] . '"';
-				try 
-				{
+					// Remove all poems by this user
+					$q = 'DELETE FROM rs_poem WHERE user_id=' 
+						. $_SESSION['id'];
 					$db->query( $q );
+
+					// Remove all comments for this user poems
+					$q = 'DELETE FROM rs_comments WHERE poet_id='
+						. $_SESSION['id'];
+					$db->query( $q );
+
+					// Delete all comments written by this user
+					$q = 'DELETE FROM rs_comments WHERE commenter_id=' 
+						. $_SESSION['id'];
+					$db->query( $q );
+
 				} 
 				catch( Exception $e ) 
 				{
