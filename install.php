@@ -42,7 +42,7 @@ if( isset( $_POST['db_server'] ) )
 	$db->query( $q );
 
 	// Table for users
-	$q = 'CREATE TABLE rs_users( id INT UNSIGNED NOT NULL, username VARCHAR(30), password VARCHAR(50), firstname VARCHAR(50), lastname VARCHAR(50), city VARCHAR(50), homepage VARCHAR(255), email VARCHAR(60), birhdate DATE, PRIMARY KEY(id) );';
+	$q = 'CREATE TABLE rs_users( id INT UNSIGNED NOT NULL, username VARCHAR(30), password VARCHAR(50), firstname VARCHAR(50), lastname VARCHAR(50), city VARCHAR(50), homepage VARCHAR(255), email VARCHAR(60), birthdate DATE, PRIMARY KEY(id) );';
 	$db->query( $q );
 }
 else
