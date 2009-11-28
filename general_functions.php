@@ -253,6 +253,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	function create_top_menu()
 	{
 		echo '<div class="menu">';
+
+		// If there is unseen comments, then show link
+		// where we can open a page where all those poems
+		// are listed in one page so comments are easy
+		// to check all at the same time.
+		if( isset( $_SESSION['unseen_comments'] ) 
+			&& $_SESSION['unseen_comments'] > 0 )
+		{
+			echo '<a href="show_new_comments.php">(';
+			echo $_SESSION['unseen_comments'];
+			echo ')</a>';
+		
+		}
 		echo '<a href="index.php">Etusivu</a>';
 
 		if( isset( $_SESSION['username'] ) )

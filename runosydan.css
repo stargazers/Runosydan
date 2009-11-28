@@ -125,7 +125,7 @@ body
 
 .poems, .ownpage, .mainpage_div, .login, .register, .poet_info, 
 .edit_poem, .remove_poem, .edit_profile, .privacy_policy, .remove_profile,
-.download, .leave_comment
+.download, .leave_comment, .new_comments
 {
 	width: 600px;
 	border: 2px dotted gray;
@@ -312,6 +312,16 @@ input[type=submit]
 	text-decoration: none;
 	font-size: 70%;
 	display: none;
+}
+
+/* Same than normal comment, but this is used on page where
+   we can see all the poems which have comments. So, we do
+   not want to display:none on this div. */
+.poem_comment_visible
+{
+	color: #ac1220;
+	text-decoration: none;
+	font-size: 70%;
 }
 
 .poem_comment a:link, .poem_comment a:visited

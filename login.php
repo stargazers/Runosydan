@@ -63,6 +63,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 					$_SESSION['message'] = 'Olet kirjautunut sisään '
 						. 'käyttäjätunnuksella "' . $username . '"';
+
+					$cUsers = new CUsers( $db, $_SESSION );
+					$_SESSION['unseen_comments'] = $cUsers->countUnseenComments( $_SESSION['id'] );
 				}
 				else
 				{

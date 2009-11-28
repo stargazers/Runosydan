@@ -53,6 +53,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			$ret = $this->db->query( $q );
 		}
 
+		public function getPoemsWithUnseenConnents( $user_id )
+		{
+			$q = 'select c.id, p.id, p.user_id FROM rs_comments c LEFT JOIN '
+				. 'rs_poem p ON c.poem_id = p.id WHERE p.user_id=' . $id 
+				. ' AND c.is_seen IS NULL OR c.is_seen != 1';
+
+			try 
+			{
+				$ret = $this->db->query( $q );
+
+				if( $this->db->numRows( $ret ) > 0 )
+					return $this->db->numRows( $ret );
+
+			}
+			catch( Exception $e )
+			{
+				echo 'Virhe tietokantakyselyssä!';
+			}
+		}
+
 		// *********************************************
 		//	getPoems
 		//
@@ -92,7 +112,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 		public function getComments( $poem_id )
 		{
-			$q = 'SELECT c.commenter_id, c.comment, c.date_added, u.username FROM rs_comments c LEFT JOIN rs_users u ON u.id=c.commenter_id WHERE c.poem_id=' . $poem_id . ' ORDER BY c.date_added';
+			$q = 'SELECT c.id, c.commenter_id, c.comment, c.date_added, u.username FROM rs_comments c LEFT JOIN rs_users u ON u.id=c.commenter_id WHERE c.poem_id=' . $poem_id . ' ORDER BY c.date_added';
 
 			try
 			{

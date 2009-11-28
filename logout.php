@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	session_start();
 	unset( $_SESSION['username'] );
 	unset( $_SESSION['id'] );
+	unset( $_SESSION['unseen_comments'] );
 	header( 'Location: login.php' );
 
 ?>

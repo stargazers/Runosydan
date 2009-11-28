@@ -57,6 +57,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			return null;
 		}
 
+		public function countUnseenComments( $id )
+		{
+			$q = 'select c.id, p.id, p.user_id FROM rs_comments c LEFT JOIN '
+				. 'rs_poem p ON c.poem_id = p.id WHERE p.user_id=' . $id 
+				. ' AND c.is_seen IS NULL OR c.is_seen != 1';
+
+			try 
+			{
+				$ret = $this->db->query( $q );
+
+				if( $this->db->numRows( $ret ) > 0 )
+					return $this->db->numRows( $ret );
+
+			}
+			catch( Exception $e )
+			{
+				echo 'Virhe tietokantakyselyssä!';
+			}
+		}
+
 
 		// *********************************************
 		//	getUserInfo
