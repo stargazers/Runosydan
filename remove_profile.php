@@ -105,6 +105,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				echo '<a href="index.php">Etusivulle</a><br><br>';
 				echo '</div>';
 			}
+			// Given password did not match with the password
+			// what was on the database!
 			else
 			{
 				create_site_top();
