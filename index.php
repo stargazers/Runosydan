@@ -18,6 +18,52 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+	function show_news()
+	{
+		if( file_exists( 'news.txt' ) )
+		{
+			echo '<h3>Uutisia</h3>';
+			$data = file( 'news.txt' );
+			$rows = count( $data );
+			$nextIsHeader = true;
+			$headers = 0;
+
+			for( $i=0; $i < $rows; $i++ )
+			{ 
+				// If next line is header, then it must bold font
+				if( $nextIsHeader )
+				{
+					// Show only three newest items
+					if( $headers == 3 )
+					{
+						echo '<br>';
+						echo '<a href="news.php">Kaikki uutiset</a>';
+						break;
+					}
+
+					// Increase number of shown news
+					$headers++;
+
+					// Add empty line between text and header.
+					// Still do not add empty line between "Uutisia"-text
+					// and next newsheader.
+					if( $i > 0 )
+						echo '<br>';
+
+					echo '<b>' . $data[$i] . '</b><br>';
+					$nextIsHeader = false;
+				}
+				else
+				{
+					if( strstr( $data[$i], '-----' ) )
+						$nextIsHeader = true;
+					else
+						echo $data[$i] . '<br>';
+				}
+			}
+		}
+	}
+
 	session_start();
 
 	// create_site_top and create_site_menu is defined in
@@ -32,6 +78,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<h2 class="mainpage">Runosydän</h2>
 
 	<p class="mainpage">Tervetuloa runosydan.net sivustolle!<br>
+	<?php show_news() ?>
+
 	<h3>Lyhyesti</h3>
 	Sivuston tarkoituksena on toimia julkaisukanavana omille runoillesi
 	ja kirjoitelmillesi.<br><br>
@@ -56,6 +104,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		helposti tekstitiedostona ilman että joudun selaamaan
 		kaikki sivut yksi kerrallaan läpi (varmuuskopiointia varten
 		sekä jos tahdon vaihtaa palvelusta toiseen)</li>
+		<li>Satunnainen runo -toiminto</li>
 	</ul>
 
 	<h3>Palaute</h3>

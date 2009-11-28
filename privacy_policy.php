@@ -54,6 +54,7 @@ echo '<p>Tietoja ei luovuteta kolmansille osapuolille ilman virkavallan määrä
 echo '<h4>8. Rekisterin suojauksen periaatteet</h4>';
 echo '<p>Palvelimen tietokantaan pääsee käsiksi vain palvelun ylläpitäjä sekä palvelimen ylläpitäjä.</p>';
 
+echo '<a href="index.php">Takaisin etusivulle</a><br><br>';
 echo '</div>';
 
 ?>

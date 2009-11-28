@@ -277,6 +277,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			echo '<a href="login.php">Kirjaudu</a>';
 
 		echo '<a href="poets.php">Runoilijat</a>';
+		echo '<a href="random.php">Satunnainen</a>';
 		echo '</div>';
 	}
 

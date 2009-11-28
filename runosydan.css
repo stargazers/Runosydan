@@ -25,7 +25,7 @@ body
 .menu
 {
 	width: 600px;
-	padding-left: 30px;
+	font-size: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -41,7 +41,7 @@ body
 {
 	text-decoration: none;
 	color: #534a4a;
-	margin-left: 30px;
+	margin-left: 15px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -54,7 +54,8 @@ body
 	margin-bottom: 50px;
 }
 
-.poets_list a:link, .poets_list a:visited, .login a:link, .login a:visited
+.poets_list a:link, .poets_list a:visited, .login a:link, .login a:visited,
+.download a:link, .download a:visited
 {
 	color: black;
 	text-decoration: none;
@@ -74,7 +75,7 @@ body
 	width: 100%;
 }
 
-.remove_poem a:hover
+.remove_poem a:hover, .download a:hover
 {
 	text-decoration: underline;
 }
@@ -129,6 +130,18 @@ body
 {
 	width: 600px;
 	border: 2px dotted gray;
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.news, .random_poem
+{
+	width: 600px;
+	border: 2px dotted gray;
+	padding-top: 10px;
+	padding-bottom: 30px;
 	padding-left: 30px;
 	padding-right: 30px;
 	margin-left: auto;
@@ -327,4 +340,19 @@ input[type=submit]
 .poem_comment a:link, .poem_comment a:visited
 {
 	font-size: 100%;
+}
+
+.mainpage_div a:link, .mainpage_div a:visited,
+.news a:link, .news a:visited,
+.privacy_policy a:link, .privacy_policy a:visited,
+.random_poem a:link, .random_poem a:visited
+{
+	color: black;
+}
+
+.mainpage_div a:hover, .news a:hover,
+.privacy_policy a:hover, .random_poem a:hover
+{
+	color: red;
+	text-decoration: none;
 }

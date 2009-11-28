@@ -53,6 +53,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			$ret = $this->db->query( $q );
 		}
 
+		// *********************************************
+		//	getRandomPoem
+		//
+		//	@brief Get a random poem.
+		//
+		// *********************************************
+		public function getRandomPoem()
+		{
+			$q = 'SELECT p.id, p.title, p.poem, p.added, u.id as user_id, u.username FROM rs_poem p LEFT JOIN rs_users u ON u.id=p.user_id ORDER BY RAND() LIMIT 1';
+
+			// Get random poem
+			try
+			{
+				$ret = $this->db->query( $q );
+
+				// If we found random poem, return it.
+				if( $this->db->numRows( $ret ) > 0 )
+				{
+					$ret = $this->db->fetchAssoc( $ret );
+					return $ret;
+				}
+
+				return array();
+			}
+			catch( Exception $e )
+			{
+				echo 'Virhe tietokantakyselyssä!';
+			}
+
+			return array();
+		}
+
 		public function getPoemsWithUnseenConnents( $user_id )
 		{
 			$q = 'select c.id, p.id, p.user_id FROM rs_comments c LEFT JOIN '
