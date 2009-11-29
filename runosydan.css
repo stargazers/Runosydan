@@ -356,3 +356,8 @@ input[type=submit]
 	color: red;
 	text-decoration: none;
 }
+
+.css
+{
+	border: 0px;
+}

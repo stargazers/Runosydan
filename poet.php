@@ -72,9 +72,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '<p class="poet_name">';
 
 		// Show poet username as a link.
+		echo '<a href="rss.php?poet_id=' . $id . '">';
+		echo '<img src="graphics/rss.gif" class="rss"></a>&nbsp;&nbsp;&nbsp;';
 		echo '<a href="show_poet_info.php?id=' . $id . '">';
 		echo get_poet_username( $id );
-		echo '</a></p>';
+		echo '</a>';
+		echo '</p>';
 
 		// Show poet poems.
 		show_poems( $id );

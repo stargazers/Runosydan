@@ -29,7 +29,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 	// Get poets
 	$q = 'SELECT id, username FROM rs_users ORDER BY username';
-	$ret = $db->query( $q );
+	try
+	{
+		$ret = $db->query( $q );
+	}
+	catch( Exception $e )
+	{
+		echo 'Virhe tietokantakyselyssä!';
+		die();
+	}
 
 	// Here we store poets and create own index for each found alphabet
 	$users = array();
@@ -66,7 +74,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				$id = $value['id'];
 				echo '<a href="poet.php?id=' . $id . '">';
 				echo $value['username'];
-				echo '</a><br>';
+				echo '</a>';
+				echo '<br>';
 			}
 		}
 	}	

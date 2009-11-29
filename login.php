@@ -43,7 +43,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			$q = 'SELECT id, username, password FROM rs_users WHERE '
 				. 'username="' . $username . '"';
 
-			$ret = $db->query( $q );
+			try
+			{
+				$ret = $db->query( $q );
+			}
+			catch( Exception $e )
+			{
+				echo 'Virhe tietokantakyselyssä!';
+				die();
+			}
 
 			// If we found in database user, then check password
 			if( $db->numRows( $ret ) > 0 )

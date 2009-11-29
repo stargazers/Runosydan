@@ -359,7 +359,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				echo '">' . $ret[0]['homepage'] . '</a>';
 			}
 
-			echo '<br>Runoja: ' . $numPoems . '<br><br>';
+			echo '<br>Runoja: ' . $numPoems . '<br>';
+			echo '<a href="rss.php?poet_id=' . $id . '">';
+			echo '<img src="graphics/rss.gif" class="rss"></a>';
+			echo '<br>';
 
 			// If we are on own page, then we show some useful
 			// links too, eg. possibility to change our informations.
