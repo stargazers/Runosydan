@@ -34,6 +34,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			return $this->poemsPerPage;
 		}
 
+		public function getNewestPoems( $num )
+		{
+			// Just in case...
+			$num = mysql_real_escape_string( $num );
+
+			$q = 'SELECT * FROM rs_poem ORDER BY added DESC LIMIT ' 
+				. $num;
+
+			try
+			{
+				$ret = $this->db->query( $q );
+
+				if( $this->db->numRows( $ret ) > 0 )
+					return $this->db->fetchAssoc( $ret );
+
+			}
+			catch( Exception $e )
+			{
+				return array();
+			}
+		}
+
 		public function addPoem( $data )
 		{
 			// We do not want SQL-injections.

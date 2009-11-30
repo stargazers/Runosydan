@@ -2,7 +2,7 @@
 
 /*
 General functions. Part of Runosydan.net.
-Copyright (C) 2009	Aleksi Räsänen <aleksi.rasanen@runosydan.net>
+Copyright (C) 2009 Aleksi Räsänen <aleksi.rasanen@runosydan.net>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -122,6 +122,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		{
 			foreach( $poems as $cur )
 			{
+				// Create unique named DIV so we can create
+				// a href what will jump directly here.
+				echo '<div id="poem_' . $cur['id'] . '">';
+
 				$cur['added'] = date( 'd.m.Y H:i', 
 					strtotime( $cur['added'] ) );
 				$cur['poem'] = nl2br( $cur['poem'] );
@@ -186,6 +190,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 						. '">' . $comments[$i]['username'] . '</a><br>';
 					echo $comments[$i]['date_added'];
 				}
+				echo '</div>';
 				echo '</div>';
 			}
 
@@ -277,7 +282,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			echo '<a href="login.php">Kirjaudu</a>';
 
 		echo '<a href="poets.php">Runoilijat</a>';
-		echo '<a href="random.php">Satunnainen</a>';
+		echo '<a href="poems.php">Runot</a>';
 		echo '</div>';
 	}
 

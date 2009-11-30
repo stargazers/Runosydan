@@ -126,7 +126,7 @@ body
 
 .poems, .ownpage, .mainpage_div, .login, .register, .poet_info, 
 .edit_poem, .remove_poem, .edit_profile, .privacy_policy, .remove_profile,
-.download, .leave_comment, .new_comments
+.download, .leave_comment, .new_comments, .poems
 {
 	width: 600px;
 	border: 2px dotted gray;
@@ -190,6 +190,13 @@ body
 	width: 500px;
 	margin-left: 60px;
 	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.poems table
+{
+	width: 500px;
+	margin-left: 60px;
 	padding-bottom: 20px;
 }
 
@@ -360,4 +367,11 @@ input[type=submit]
 .css
 {
 	border: 0px;
+}
+
+#random_poem_embedded
+{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 }
