@@ -93,7 +93,6 @@ foreach( $poems as $poem )
 
 	echo '&amp;page=' . $correct_page . '#poem_' . $poem['id'] . '">';
 	echo $poem['title'];
-	echo $num_after / $poems_per_page;
 	echo '</a>';
 	echo '</td>';
 	echo '<td>';
