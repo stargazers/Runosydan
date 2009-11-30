@@ -61,6 +61,10 @@ foreach( $poems as $poem )
     // Replace \n to &lt;br&gt; so it will add new line 
     // break on RSS-feedreaders.
     $poem['poem'] = str_replace( "\n", '&lt;br&gt;', $poem['poem'] );
+
+    // Replace & char to &amp;
+    $poem['poem'] = str_replace( "&", '&amp;', $poem['poem'] );
+
     echo '<item>' . "\n";
     echo '<title>' . $poem['title'] . '</title>' . "\n";
     echo '<description>' . $poem['poem'] . "\n" .'</description>' . "\n";
