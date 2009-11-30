@@ -1,7 +1,7 @@
 <?php
-	
+
 /*
-Poems mainpage. Part of Runosydan.net.
+Newest poems. Part of Runosydan.net.
 Copyright (C) 2009 Aleksi Räsänen <aleksi.rasanen@runosydan.net>
 
 This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,6 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 session_start();
 require 'general_functions.php';
 require 'CPoem.php';
@@ -26,18 +25,27 @@ require 'CPoem.php';
 create_site_top();
 create_top_menu();
 
+// If there is no defined how many poems we will show,
+// then by default we show 50
+if(! isset( $_GET['num_poems'] ) )
+	$_GET['num_poems'] = 50;
+
+// Maximum is 100 poems per page. We do not want
+// to make whole server lag because of this.
+if( $_GET['num_poems'] > 100 )
+	$_GET['num_poems'] = 100;
+
 echo '<div class="poems">';
-echo '<h2>Runot</h2>';
-echo '<table class="title_table">';
-echo '<tr><td><h2><a href="newest_poems.php">10 uusinta runoa</a></h3></td>';
+echo '<table width="100%">';
+echo '<tr><td><h3>' . $_GET['num_poems'] . ' uusinta runoa</h3></td>';
 echo '<td>';
 echo '<a href="rss.php?special=newest"><img src="graphics/rss.gif" class="rss">';
 echo '</a></td></tr></table>';
 
-// Get 10 newest poems
+// Get 50 newest poems
 $cPoem = new CPoem( $db, $_SESSION );
 $cUsers = new CUsers( $db, $_SESSION );
-$poems = $cPoem->getNewestPoems( 10 );
+$poems = $cPoem->getNewestPoems( $_GET['num_poems'] );
 
 echo '<table>';
 echo '<tr>';
@@ -95,38 +103,6 @@ foreach( $poems as $poem )
 }
 echo '</table>';
 
-echo '<h3><a href="random.php">Satunnainen runo</a></h3>';
+echo '<a href="poems.php">Takaisin runolistaukseen</a><br><br>';
 
-// Get random poem
-$random = $cPoem->getRandomPoem();
-
-echo '<div id="random_poem_embedded">';
-// If array of random poem is empty, just show information
-// that there is no data.
-if( empty( $random ) )
-{
-	echo 'Tietokannasta ei löydy vielä yhtään runoa.';
-}
-else
-{
-	echo '<p class="poem_header">';
-	echo stripslashes( $random[0]['title'] );
-	echo '</p>';
-
-	echo '<p class="poem">';
-	$random[0]['poem'] = str_replace( '<br />', '<br>', 
-		$random[0]['poem'] );
-	echo nl2br( stripslashes( $random[0]['poem'] ) );
-
-	echo '<p class="poem_added">';
-	echo $random[0]['added'];
-	echo '<br><a href="poet.php?id=' . $random[0]['user_id'] . '">';
-	echo $random[0]['username'];
-	echo '</a>';
-	echo '</p>';
-}
-
-echo '</div>';
-echo '</div>';
-create_site_bottom();
 ?>
