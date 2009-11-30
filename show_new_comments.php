@@ -31,6 +31,11 @@ require 'general_functions.php';
 require 'CPoem.php';
 $cPoem = new CPoem( $db, $_SESSION );
 
+// Update session variable before we create top menu
+// so it will be updated and no unseen poems will be
+// shown on menu after we have arrived on this page.
+$_SESSION['unseen_comments'] = 0;
+
 create_site_top();
 create_top_menu();
 
@@ -123,11 +128,10 @@ echo '</div>';
 $q = 'UPDATE rs_comments SET is_seen=1 WHERE id IN(';
 $q .= implode( ', ', $comments_ids ) . ')';
 
-// Update comments & update session variable.
+// Update comments 
 try
 {
 	$db->query( $q );
-	$_SESSION['unseen_comments'] = 0;
 }
 catch( Exception $e )
 {
