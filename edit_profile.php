@@ -57,7 +57,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			'password_again' => 'Salasana uudelleen',
 			'city' => 'Kaupunki',
 			'homepage' => 'Kotisivu',
-			'birthdate' => 'Syntymäpäivä (pv.kk.vvvvv)',
+			'birthdate' => 'Syntymäpäivä (pv.kk.vvvv)',
 			'email' => 'Sähköposti' );
 
 		echo '<div class="edit_profile">';

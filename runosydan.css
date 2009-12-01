@@ -55,14 +55,15 @@ body
 }
 
 .poets_list a:link, .poets_list a:visited, .login a:link, .login a:visited,
-.download a:link, .download a:visited
+.download a:link, .download a:visited, .register a:link, .register a:visited
 {
 	color: black;
 	text-decoration: none;
 	margin-left: 20px;
 }
 
-.remove_poem a:link, .remove_poem a:visited
+.remove_poem a:link, .remove_poem a:visited,
+.remove_profile a:link, .remove_profile a:visited
 {
 	color: black;
 	text-decoration: none;
@@ -75,7 +76,8 @@ body
 	width: 100%;
 }
 
-.remove_poem a:hover, .download a:hover
+.remove_poem a:hover, .download a:hover, .register a:hover, 
+.remove_profile a:hover
 {
 	text-decoration: underline;
 }
