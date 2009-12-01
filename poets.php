@@ -51,8 +51,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		// Add poets to array $users
 		foreach( $ret as $cur )
 		{
-			// Get the first letter of poetname
-			$letter = substr( $cur['username'], 0, 1 );
+			// Get the first letter of poetname in uppercase.
+			$letter = strtoupper( 
+				substr( $cur['username'], 0, 1 ) );
 
 			// Create index for this alphabet if does ot exists
 			if(! isset( $users[$letter] ) )

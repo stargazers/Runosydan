@@ -241,6 +241,11 @@ input[type=submit]
 	padding-bottom: 0px;
 }
 
+textarea
+{
+	overflow: auto;
+}
+
 .ownpage textarea, .leave_comment textarea
 {
 	width: 360px;
