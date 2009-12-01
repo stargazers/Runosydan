@@ -84,7 +84,15 @@ foreach( $poems as $poem )
 	}
 
 	echo '&amp;page=' . $correct_page . '#poem_' . $poem['id'] . '">';
-	echo $poem['title'];
+
+	// If there is no name given to poem, then we
+	// must give at least information that this poem
+	// is nameless, so users can click and see that poem.
+	if( $poem['title'] == '' )
+		echo '<i>(Nimetön runo)</i>';
+	else
+		echo $poem['title'];
+
 	echo '</a>';
 	echo '</td>';
 	echo '<td>';
