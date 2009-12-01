@@ -288,7 +288,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 	function create_site_top()
 	{
-		echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">';
+		echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">';
 		echo '<html>';
 		echo '<head>';
 		echo '<script type="text/javascript" src="jquery-1.3.2.min.js"></script>';

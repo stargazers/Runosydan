@@ -29,9 +29,9 @@ create_top_menu();
 echo '<div class="poems">';
 echo '<h2>Runot</h2>';
 echo '<table class="title_table">';
-echo '<tr><td><h2><a href="newest_poems.php">10 uusinta runoa</a></h3></td>';
+echo '<tr><td><h2><a href="newest_poems.php">10 uusinta runoa</a></h2></td>';
 echo '<td>';
-echo '<a href="rss.php?special=newest"><img src="graphics/rss.gif" class="rss">';
+echo '<a href="rss.php?special=newest"><img src="graphics/rss.gif" class="rss" alt="rss">';
 echo '</a></td></tr></table>';
 
 // Get 10 newest poems
