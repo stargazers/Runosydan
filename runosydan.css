@@ -63,7 +63,8 @@ body
 }
 
 .remove_poem a:link, .remove_poem a:visited,
-.remove_profile a:link, .remove_profile a:visited
+.remove_profile a:link, .remove_profile a:visited,
+.poems_by_day a:link, .poems_by_day a:visited
 {
 	color: black;
 	text-decoration: none;
@@ -121,14 +122,14 @@ body
 	font-size: 90%;
 }
 
-.poem_actions a:hover, .poem a:hover, .poems a:hover
+.poem_actions a:hover, .poem a:hover, .poems a:hover, .poems_by_day a:hover
 {
 	text-decoration: underline;
 }
 
 .poems, .ownpage, .mainpage_div, .login, .register, .poet_info, 
 .edit_poem, .remove_poem, .edit_profile, .privacy_policy, .remove_profile,
-.download, .leave_comment, .new_comments, .poems
+.download, .leave_comment, .new_comments, .poems, .poems_by_day
 {
 	width: 600px;
 	border: 2px dotted gray;
@@ -359,7 +360,7 @@ textarea
 .mainpage_div a:link, .mainpage_div a:visited,
 .news a:link, .news a:visited,
 .privacy_policy a:link, .privacy_policy a:visited,
-.random_poem a:link, .random_poem a:visited
+.random_poem a:link, .random_poem a:visited,
 {
 	color: black;
 }
@@ -388,4 +389,20 @@ textarea
 	margin-left: 0px;
 	font-size: 80%;
 	width: 100%;
+}
+
+.header_div
+{
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+/* Used in Poems By Day -page */
+.header
+{
+	font-size: 160%;
+	font-weight: bold;
+	margin-left: 30px;
+	margin-right: 30px;
 }

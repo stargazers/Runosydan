@@ -56,6 +56,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			}
 		}
 
+		// Get all poems depending on day.
+		// If $user_id is given, get all poems by that day
+		// but get only poems of that poet.
+		public function getPoemsByDay( $date, $user_id = '')
+		{
+			$q = 'SELECT * FROM rs_poem WHERE DATE( added )="'
+				. $date . '"';
+
+			if( $user_id != '' )
+				$q .= ' AND user_id=' . $user_id;
+
+			$q .= ' ORDER BY added DESC';
+
+			try
+			{
+				$ret = $this->db->query( $q );
+
+				if( $this->db->numRows( $ret ) > 0 )
+					return $this->db->fetchAssoc( $ret );
+			}
+			catch( Exception $e )
+			{
+				return array();
+			}
+		}
+
 		public function addPoem( $data )
 		{
 			// We do not want SQL-injections.

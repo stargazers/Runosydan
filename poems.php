@@ -96,7 +96,10 @@ foreach( $poems as $poem )
 	echo '</a>';
 	echo '</td>';
 	echo '<td>';
+	echo '<a href="poems_by_day.php?date=' 
+		. date( 'Y-m-d', strtotime( $poem['added'] ) ) . '">';
 	echo date( 'd.m.Y H:i', strtotime( $poem['added'] ) );
+	echo '</a>';
 	echo '</td>';
 	echo '</tr>';
 }
