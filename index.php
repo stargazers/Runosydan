@@ -78,7 +78,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<h2 class="mainpage">Runosydän</h2>
 
 	<p class="mainpage">Tervetuloa runosydan.net sivustolle!<br>
-	<?php show_news() ?>
 
 	<h3>Lyhyesti</h3>
 	Sivuston tarkoituksena on toimia julkaisukanavana omille runoillesi
@@ -88,8 +87,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	Jos haluat vain lukea runoilijoiden tuotoksia, voit selata niitä
 	ilman rekisteröitymistä ylälaidan Runoilijat-sivun kautta.<br><br>
 
-	Hauskoja hetkiä runouden parissa!<br>
+	Hauskoja hetkiä runouden parissa!<br><br>
 
+	<hr>
+	<?php show_news() ?>
+
+	<br> <br>
+	<hr>
 	<h3>Miksi sivusto on olemassa?</h3>
 	Tällä hetkellä on netissä useampiakin sivustoja joissa käyttäjät
 	voivat julkaista omia kirjoituksiaan. Tämä sivusto on tehty siitäkin
