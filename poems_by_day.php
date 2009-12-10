@@ -45,7 +45,7 @@ echo '<div class="poems_by_day">';
 echo '<div class="header_div">';
 echo '<a href="poems_by_day.php?date=' . date( 'Y-m-d', strtotime( "-1 day", strtotime( $date ) ) )
 	. '">&lt;&lt;</a>';
-echo '<span class="header">Poems written ' .  $date . '</span>';
+echo '<span class="header">'.  $date . ' kirjoitetut runot</span>';
 echo '<a href="poems_by_day.php?date=' . date( 'Y-m-d', strtotime( "+1 day", strtotime( $date ) ) )
 	. '">&gt;&gt;</a>';
 echo '</div>';
