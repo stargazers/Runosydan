@@ -130,8 +130,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					strtotime( $cur['added'] ) );
 				$cur['poem'] = nl2br( $cur['poem'] );
 
+				// If poem title is empty string, then
+				// show "Nimetön runo" as a title.
+				$title = stripslashes( $cur['title'] );
+				if( $title == '' )
+					$title = '<i>(Nimetön runo)</i>';
+
 				echo '<p class="poem_header">';
-				echo stripslashes( $cur['title'] );
+				echo $title;
 				echo '</p>';
 
 				echo '<p class="poem">';
@@ -305,6 +311,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '} );';
 		echo '</script>';
 		echo '<title>Runosydän</title>';
+		echo '<meta name="description" content="Paikka runoillesi">';
+		echo '<meta name="keywords" content="Runo, Runot, Runous, Runosydän">';
 		echo '<meta http-equiv="Content-Type" content="text/xhtml;charset=utf-8">';
 		echo '<link rel="stylesheet" type="text/css" href="runosydan.css">';
 		echo '</head>';
