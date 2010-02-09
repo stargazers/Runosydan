@@ -109,13 +109,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		// Get poems. Note! This does NOT return all the poems
 		// at the time. This automatically split results if there
 		// is too many poems in one page.
-		$poems = $cPoem->getPoems( $id, $page );
+		if( $_SESSION['id'] == $id )
+			$poems = $cPoem->getPoems( $id, $page, true );
+		else
+			$poems = $cPoem->getPoems( $id, $page, false );
 
 		$poemsPerPage = $cPoem->getPoemsPerPage();
 		$last = $poemsPerPage * $page;
 
 		// Count number of poems.
-		$numPoems = $cPoem->numPoems( $id );
+		if( $_SESSION['id'] == $id )
+			$numPoems = $cPoem->numPoems( $id, true );
+		else
+			$numPoems = $cPoem->numPoems( $id, false );
 
 		// Was there any poems in database?
 		if(! is_null( $poems ) )
@@ -136,11 +142,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				if( $title == '' )
 					$title = '<i>(Nimetön runo)</i>';
 
-				echo '<p class="poem_header">';
+				if( $cur['visible'] == '0' )
+					echo '<p class="poem_header_hidden">';
+				else
+					echo '<p class="poem_header">';
+
 				echo $title;
 				echo '</p>';
 
-				echo '<p class="poem">';
+				if( $cur['visible'] == '0' )
+					echo '<p class="poem_hidden">';
+				else
+					echo '<p class="poem">';
+
 				$cur['poem'] = str_replace( '<br />', '<br>', 
 					$cur['poem'] );
 				echo stripslashes( $cur['poem'] );
@@ -165,6 +179,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					echo ' / ';
 					echo '<a href="remove_poem.php?id='
 						. $cur['id'] . '">Poista</a> / ';
+					echo '<a href="hide_poem.php?id='
+						 . $cur['id'] . '&page=' . $_GET['page'] . '">';
+
+					if( $cur['visible'] == '1' )
+						echo 'Piilota</a> / ';
+					else
+						echo 'Näytä</a> / ';
+
 					echo '<a href="#" id="comment' . $cur['id'] 
 						. '" class="showComments" onClick="return false;">'
 						. 'Näytä kommentit (' . $num . ')</a>';
@@ -343,7 +365,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '<div>';
 
 		$id = mysql_real_escape_string( $id );
-		$numPoems = $cPoem->numPoems( $id );
+
+		// Show correct number of poems, eg. show total number
+		// of poems in own page, others should see only number
+		// of visible poems.
+		if( $_SESSION['id'] == $id )
+			$numPoems = $cPoem->numPoems( $id, true );
+		else
+			$numPoems = $cPoem->numPoems( $id, false );
 
 		$q = 'SELECT firstname, lastname, city, homepage FROM rs_users '
 			. 'WHERE id="' . $id . '"';

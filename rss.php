@@ -98,7 +98,7 @@ else
 	// Get poet poems on first page
 	require 'CPoem.php';
 	$cPoems = new CPoem( $db, $_SESSION );
-	$poems = $cPoems->getPoems( $_GET['poet_id'], 1 );
+	$poems = $cPoems->getPoems( $_GET['poet_id'], 1, false );
 
 	// Feed title
 	$RSS_feed_title = 'Runoilijan ' . $poet_username . ' uusimmat runot';

@@ -39,7 +39,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			// Just in case...
 			$num = mysql_real_escape_string( $num );
 
-			$q = 'SELECT * FROM rs_poem ORDER BY added DESC LIMIT ' 
+			// Get only visible poems
+			$q = 'SELECT * FROM rs_poem WHERE visible=1 ORDER BY added DESC LIMIT ' 
 				. $num;
 
 			try
@@ -109,7 +110,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		// *********************************************
 		public function getRandomPoem()
 		{
-			$q = 'SELECT p.id, p.title, p.poem, p.added, u.id as user_id, u.username FROM rs_poem p LEFT JOIN rs_users u ON u.id=p.user_id ORDER BY RAND() LIMIT 1';
+			$q = 'SELECT p.id, p.title, p.poem, p.added, u.id as user_id, u.username FROM rs_poem p LEFT JOIN rs_users u ON u.id=p.user_id WHERE p.visible="1" ORDER BY RAND() LIMIT 1';
 
 			// Get random poem
 			try
@@ -164,8 +165,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		//		on pages if there is too many results
 		//		to fit in one page. 
 		//
+		//	@param $hiddenToo Should we return hidden
+		//		poems too? Set this true to false.
+		//
 		// *********************************************
-		public function getPoems( $id, $page )
+		public function getPoems( $id, $page, $hiddenToo )
 		{
 			$id = mysql_real_escape_string( $id );
 			$page = mysql_real_escape_string( $page );
@@ -173,8 +177,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			// First poem for LIMIT-parameter.
 			$first = $this->poemsPerPage * ( $page -1 );
 
-			$q = 'SELECT id, title, poem, added FROM rs_poem '
-				. 'WHERE user_id=' . $id . ' ORDER BY added DESC '
+			$q = 'SELECT id, title, poem, added, visible FROM rs_poem '
+				. 'WHERE user_id="' . $id . '"';
+
+			if(! $hiddenToo )
+				$q .= ' AND visible="1" ';
+
+			$q .= 'ORDER BY added DESC '
 				. 'LIMIT ' . $first . ', ' . $this->poemsPerPage;
 
 			$ret = $this->db->query( $q );
@@ -348,19 +357,59 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		//
 		//	@param $id User ID.
 		//
+		//	@param $hiddenToo Get hidden poems too?
+		//
 		// *********************************************
-		public function numPoems( $id )
+		public function numPoems( $id, $hiddenToo )
 		{
 			$id = mysql_real_escape_string( $id );
 
 			// Get number of poems
-			$q = 'SELECT COUNT(*) FROM rs_poem WHERE user_id="' 
-				. $id . '"';
+			if( $hiddenToo )
+				$q = 'SELECT COUNT(*) FROM rs_poem WHERE user_id="' . $id . '"';
+			else
+				$q = 'SELECT COUNT(*) FROM rs_poem WHERE user_id="' . $id . '" AND visible="1"';
 			
 			$ret = $this->db->query( $q );
 			$ret = $this->db->fetchAssoc( $ret );
 
 			return $ret[0]['COUNT(*)'];
+		}
+
+
+		// *********************************************
+		//	togglePoemVisibility
+		//
+		//	@brief Show or hide poem
+		//
+		//	@param $id Poem ID.
+		//
+		// *********************************************
+		public function togglePoemVisibility( $id )
+		{
+			$q = 'SELECT * FROM rs_poem WHERE id=' . $id;
+
+			try
+			{
+				$ret = $this->db->query( $q );
+
+				if( $this->db->numRows( $ret ) > 0 )
+				{
+					$ret = $this->db->fetchAssoc( $ret );
+
+					// Toggle visibility
+					if( $ret[0]['visible'] == '1' )
+						$q = 'UPDATE rs_poem SET visible = 0 WHERE id="' . $id . '"';
+					else
+						$q = 'UPDATE rs_poem SET visible = 1 WHERE id="' . $id . '"';
+
+					$this->db->query( $q );
+				}
+			}
+			catch( Exception $e )
+			{
+			
+			}
 		}
 	}
 

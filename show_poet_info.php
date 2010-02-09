@@ -55,7 +55,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 		// Count number of poems
 		$cPoem = new CPoem( $db, $_SESSION );
-		$ret[0]['num_poems'] = $cPoem->numPoems( $ret[0]['id'] );
+
+		if( $_SESSION['id'] == $id )
+			$ret[0]['num_poems'] = $cPoem->numPoems( $ret[0]['id'], true );
+		else
+			$ret[0]['num_poems'] = $cPoem->numPoems( $ret[0]['id'], false );
 
 		echo '<table>';
 

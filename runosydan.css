@@ -279,6 +279,17 @@ textarea
 	text-decoration: none
 }
 
+.poem_header_hidden
+{
+	color: #db0000;
+	font-size: 150%;
+}
+
+.poem_header_hidden:first-letter
+{
+	font-size: 160%;
+}
+
 .poem_header
 {
 	color: #534a4a;
@@ -296,6 +307,11 @@ textarea
 	color: #1a1220;
 }
 
+.poem_hidden
+{
+	font-family: Verdana, Genova, Arial, sans-serif;
+	color: #db0000;
+}
 .poem_added
 {
 	font-size: 70%;
