@@ -41,6 +41,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '<tr><td valign="top">Runo:</td>';
 		echo '<td><textarea name="poem"></textarea></td></tr>';
 
+		echo '<tr><td colspan="2">';
+		echo '<input type="checkbox" name="hidden_poem">Piilotettu runo</td></tr>';
+
 		echo '<td colspan="2"><input type="submit" value="Lisää runo">'
 			. '</td>';
 		echo '</table>';

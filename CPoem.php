@@ -89,9 +89,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			$title = mysql_real_escape_string( $data['title'] );
 			$poem = mysql_real_escape_string( $data['poem'] );
 
-			// Poems are all visible, until we make possibility
-			// to edit visiblity.
-			$visible = 1;
+			// Checkbox value is sent only if it is selected,
+			// at least in Firefox or so it seems.
+			// So, make poem hidden if data is set.
+			if( isset( $data['hidden_poem'] ) )
+				$visible = 0;
+			else
+				$visible = 1;
 
 			$s = $this->sessionData;
 			$q = 'INSERT INTO rs_poem VALUES( "", "'
