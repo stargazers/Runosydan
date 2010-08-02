@@ -29,6 +29,8 @@ echo '<div class="news">';
 if( file_exists( 'news.txt' ) )
 {
 	echo '<h3>Uutisia</h3>';
+	echo '<div class="textblock">';
+
 	$data = file( 'news.txt' );
 	$rows = count( $data );
 	$nextIsHeader = true;
@@ -39,28 +41,32 @@ if( file_exists( 'news.txt' ) )
 		// If next line is header, then it must bold font
 		if( $nextIsHeader )
 		{
+			echo '<div class="news_item_header">';
+
 			// Increase number of shown news
 			$headers++;
 
-			// Add empty line between text and header.
-			// Still do not add empty line between "Uutisia"-text
-			// and next newsheader.
-			if( $i > 0 )
-				echo '<br>';
-
-			echo '<b>' . $data[$i] . '</b><br>';
+			echo '<b>' . $data[$i] . '</b>';
 			$nextIsHeader = false;
+
+			echo '</div>';
 		}
 		else
 		{
+			echo '<div class="news_item">';
+
 			if( strstr( $data[$i], '-----' ) )
 				$nextIsHeader = true;
 			else
-				echo $data[$i] . '<br>';
+				echo $data[$i];
+
+			echo '</div>';
 		}
+
 	}
 }
 echo '<br><a href="index.php">Takaisin etusivulle</a>';
+echo '</div>';
 echo '</div>';
 
 create_site_bottom();

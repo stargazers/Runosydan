@@ -85,6 +85,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			$title = $poem[0]['title'];
 			$poem = $poem[0]['poem'];
 
+			echo '<div class="textblock">';
+			echo '<h3>Muokkaa runoa</h3>';
+			echo '</div>';
+
 			// Show form and put old values (title and poem) in the
 			// form where they belong.
 			echo '<form action="edit_poem.php" method="post">';

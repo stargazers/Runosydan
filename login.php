@@ -105,6 +105,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	// *********************************************
 	function create_login_form()
 	{
+		echo '<div class="textblock">';
+		echo '<h3>Kirjaudu</h3>';
+		echo '</div>';
+		echo '<div class="inner_textblock">';
 		echo '<form action="login.php" method="post">';
 		echo '<table>';
 		echo '<tr><td>Käyttäjätunnus</td>';
@@ -117,6 +121,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '</table>';
 		echo '</form>';
 		echo '<a href="register.php">Luo uusi käyttäjätunnus</a><br><br>';
+		echo '</div>';
 	}
 
 	session_start();

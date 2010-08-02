@@ -26,6 +26,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	create_top_menu();
 	
 	echo '<div class="poets_list">';
+	echo '<div class="textblock">';
+	echo '<h3>Runoiljat</h3>';
+	echo '</div>';
+	echo '<div class="inner_textblock">';
+	echo '<div class="poets_list_inner">';
 
 	// Get poets
 	$q = 'SELECT id, username FROM rs_users ORDER BY username';
@@ -81,5 +86,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		}
 	}	
 
+	echo '</div>';
 	echo '</div>';
 ?>

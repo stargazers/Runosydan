@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		if( file_exists( 'news.txt' ) )
 		{
 			echo '<h3>Uutisia</h3>';
+			echo '<div class="textblock">';
 			$data = file( 'news.txt' );
 			$rows = count( $data );
 			$nextIsHeader = true;
@@ -33,10 +34,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				// If next line is header, then it must bold font
 				if( $nextIsHeader )
 				{
+					echo '<div class="news_item_header">';
+
 					// Show only three newest items
 					if( $headers == 3 )
 					{
-						echo '<br>';
 						echo '<a href="news.php">Kaikki uutiset</a>';
 						break;
 					}
@@ -44,23 +46,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					// Increase number of shown news
 					$headers++;
 
-					// Add empty line between text and header.
-					// Still do not add empty line between "Uutisia"-text
-					// and next newsheader.
-					if( $i > 0 )
-						echo '<br>';
-
-					echo '<b>' . $data[$i] . '</b><br>';
+					echo '<b>' . $data[$i] . '</b>';
 					$nextIsHeader = false;
+
+					echo '</div>';
+
 				}
 				else
 				{
+					echo '<div class="news_item">';
 					if( strstr( $data[$i], '-----' ) )
 						$nextIsHeader = true;
 					else
-						echo $data[$i] . '<br>';
+						echo $data[$i];
+					echo '</div>';
 				}
+				
 			}
+
+			echo '</div>';
 		}
 	}
 
@@ -75,11 +79,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ?>
 
 	<div class="mainpage_div">
-	<h2 class="mainpage">Runosydän</h2>
 
-	<p class="mainpage">Tervetuloa runosydan.net sivustolle!<br>
-
-	<h3>Lyhyesti</h3>
+	<h3>Runosydän.net lyhyesti</h3>
+	<div class="textblock">
 	Sivuston tarkoituksena on toimia julkaisukanavana omille runoillesi
 	ja kirjoitelmillesi.<br><br>
 	Mikäli et vielä ole rekisteröitynyt, voit rekisteröityä sivustolle
@@ -88,6 +90,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	ilman rekisteröitymistä ylälaidan Runoilijat-sivun kautta.<br><br>
 
 	Hauskoja hetkiä runouden parissa!<br><br>
+	</div>
 
 	<hr>
 	<?php show_news() ?>
@@ -95,6 +98,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<br> <br>
 	<hr>
 	<h3>Miksi sivusto on olemassa?</h3>
+	<div class="textblock">
 	Tällä hetkellä on netissä useampiakin sivustoja joissa käyttäjät
 	voivat julkaista omia kirjoituksiaan. Tämä sivusto on tehty siitäkin
 	huolimatta, mutta erilaisia tarpeita vastaaviksi. Tarpeet joita
@@ -110,14 +114,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		sekä jos tahdon vaihtaa palvelusta toiseen)</li>
 		<li>Satunnainen runo -toiminto</li>
 	</ul>
+	</div>
 
 	<h3>Palaute</h3>
+	<div class="textblock">
 	Sivustoon liittyviä vikailmoituksia sekä kehitysideoita voi lähettää 
 	osoitteeseen
 	<a href="mailto:aleksi.rasanen@runosydan.net">aleksi.rasanen@runosydan.net</a>. Monia ominaisuuksia puuttuu ja joitain mahdollisesti
 	lisätään ajan saatossa, jos aikaa ja innostusta liikenee.<br>
+	</div>
 
 	<h3>Teknistä tietoa</h3>
+	<div class="textblock">
 	Tämä sivu on toteutettu käyttäen PHP-ohjelmointikieltä ja tietokantana
 	MySQL:ää. Javascriptissä on käytetty jQuery-kirjastoa ja 
 	sivuston lähdekoodit on julkaistu GNU AGPL -lisenssillä ja
@@ -125,9 +133,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	Kirjautuneille käyttäjille näkyvissä olevat ikonit runoja lisätessä/muokatessa sekä poistaessa
 	on tehnyt Everaldo Coelho ja ne löytyvät Crystal Clear -nimisestä paketista ja ovat 
 	LGPL-lisenssin alaisia. Sivujen ohjelmointi on tehty käyttäen VIM-editoria.<br>
+	</div>
 
 	<h3>Rekisteriseloste</h3>
+	<div class="textblock">
 	Voit katsoa rekisteriselosteen <a href="privacy_policy.php">täältä</a>.<br><br>
+	</div>
 	</div>
 
 	<script type="text/javascript">

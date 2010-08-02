@@ -32,7 +32,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		if(! isset( $_SESSION['username'] ) )
 			return;
 
-		echo '<form action="addpoem.php" method="post">';
+		echo '<div class="textblock">';
+		echo '<h3>Lisää uusi runo</h3>';
+		echo '</div>';
+		echo '<form action="addpoem.php" method="post" class="adding_form">';
 		echo '<table>';
 		echo '<tr><td>Runon nimi:</td>';
 		echo '<td><input type="text" name="title">';

@@ -31,7 +31,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		create_site_top();
 		create_top_menu();
 		echo '<div class="leave_comment">';
-		echo '<br>';
 
 		if(! isset( $_GET['id'] ) )
 		{
@@ -62,7 +61,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			$ret = $db->fetchAssoc( $ret );
 			$ret[0]['poem'] = nl2br( $ret[0]['poem'] );
 	
-			echo '<h2>Kommentoi runoa</h2>';
+			echo '<div class="textblock">';
+			echo '<h3>Kommentoi runoa</h3>';
+			echo '<div class="inner_textblock">';
 			echo '<p class="poem_header">';
 			echo $ret[0]['title'];
 			echo '</p>';
@@ -71,8 +72,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 					$ret[0]['poem'] );
 			echo stripslashes( $ret[0]['poem'] );
 			echo '</p>';
-
-			echo '<hr>';
 
 			echo '<form action="add_comment.php?action=add" method="post">';
 			echo '<textarea name="comment"></textarea><br>';
@@ -85,6 +84,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			echo '<a href="poet.php?id=' . $ret[0]['user_id'] 
 				. '&amp;page="' . $ret[0]['page'] . '">Takaisin runoihin</a>';
 			echo '<br><br>';
+			echo '</div>';
+			echo '</div>';
 			echo '</div>';
 		}
 	}

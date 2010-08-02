@@ -339,6 +339,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '<link rel="stylesheet" type="text/css" href="runosydan.css">';
 		echo '</head>';
 		echo '<body>';
+
+		echo '<div class="top_banner">';
+		echo '<h2>Runosydän</h2>';
+		echo '<p>Sanoja suoraan sydämestä</p>';
+		echo '</div>';
 	}
 
 	function create_site_bottom()

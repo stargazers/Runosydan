@@ -20,6 +20,61 @@ body
 {
 	background-color: white;
 	color: black;
+	font-family: "Gill Sans", sans-serif;
+	margin-bottom: 90px;
+	margin-top: 20px;
+}
+
+a:link, a:visited
+{
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover
+{
+	text-decoration: none;
+	color: red;
+}
+
+.top_banner
+{
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.top_banner h2
+{
+	text-align: center;
+	font-size: 100px;
+	margin-top: 0px;
+}
+
+.top_banner p
+{
+	font-size: 85%;
+	font-family: "Zapf Chancery", cursive;
+	margin-top: -35px;
+	float: right;
+}
+
+.textblock
+{
+	padding-left: 20px;
+}
+
+h2
+{
+	font-family: "Zapf Chancery", cursive;
+	font-size: 200%;
+	margin-bottom: 0px;
+}
+
+h3
+{
+	font-family: "Zapf Chancery", cursive;
+	margin-bottom: 8px;
 }
 
 .menu
@@ -28,23 +83,36 @@ body
 	font-size: 90%;
 	margin-left: auto;
 	margin-right: auto;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.menu a:link, .menu a:visited
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	text-decoration: none;
+	font-family: "Helvetica", sans-serif;
+	font-variant: small-caps;
+	font-weight: bold;
+	font-size: 120%;
+	color: #534a4a;
+	margin-left: 15px;
 }
 
 .menu a:hover
 {
 	text-decoration: none;
 	background-color: #aba8a8;
+	color: red;
 	padding-top: 3px;
 }
 
-.menu a:link, .menu a:visited
-{
-	text-decoration: none;
-	color: #534a4a;
-	margin-left: 15px;
-	padding-left: 5px;
-	padding-right: 5px;
-}
 
 .poets_list
 {
@@ -54,11 +122,19 @@ body
 	margin-bottom: 50px;
 }
 
+.poets_list_inner
+{
+	margin-top: 50px;
+	width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*
 .poets_list a:link, .poets_list a:visited, .login a:link, .login a:visited,
 .download a:link, .download a:visited, .register a:link, .register a:visited
 {
-	color: black;
-	text-decoration: none;
+	color: blue;
 	margin-left: 20px;
 }
 
@@ -66,9 +142,10 @@ body
 .remove_profile a:link, .remove_profile a:visited,
 .poems_by_day a:link, .poems_by_day a:visited
 {
-	color: black;
+	color: blue;
 	text-decoration: none;
 }
+*/
 
 .message
 {
@@ -77,6 +154,7 @@ body
 	width: 100%;
 }
 
+/*
 .remove_poem a:hover, .download a:hover, .register a:hover, 
 .remove_profile a:hover
 {
@@ -85,14 +163,16 @@ body
 
 .login a:hover
 {
-	text-decoration: underline;
+	text-decoration: none;
+	color: red;
 }
 
 .poets_list a:hover
 {
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	color: red;
+	text-decoration: none;
 }
+*/
 
 .letter
 {
@@ -101,20 +181,21 @@ body
 	border-bottom: 3px solid #534a4a;
 }
 
-.poem_actions a:link, .poem_actions a:visited, 
+/*
 .poems a:link, .poems a:visited
 {
 	color: #1a1220;
 	text-decoration: none;
-	font-size: 80%;
 }
 
 /* Poems when listed on "Oma sivu" */
+/*
 .poem a:link, .poem a:visited
 {
 	color: #1a1220;
 	text-decoration: none;
 }
+*/
 
 .change_page
 {
@@ -122,9 +203,9 @@ body
 	font-size: 90%;
 }
 
-.poem_actions a:hover, .poem a:hover, .poems a:hover, .poems_by_day a:hover
+.poem_actions a:link, .poem_actions a:visited
 {
-	text-decoration: underline;
+	font-size: 70%;
 }
 
 .poems, .ownpage, .mainpage_div, .login, .register, .poet_info, 
@@ -132,17 +213,29 @@ body
 .download, .leave_comment, .new_comments, .poems, .poems_by_day
 {
 	width: 600px;
-	border: 2px dotted gray;
 	padding-left: 30px;
 	padding-right: 30px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
+.news_item
+{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 8px;
+}
+
+.news_item_header
+{
+	margin-bottom: 0px;
+	margin-top: 30px;
+}
+
 .news, .random_poem
 {
 	width: 600px;
-	border: 2px dotted gray;
+	/* border: 2px dotted gray; */
 	padding-top: 10px;
 	padding-bottom: 30px;
 	padding-left: 30px;
@@ -176,6 +269,7 @@ body
 	font-size: 80%;
 }
 
+/*
 .own_info a:link, .own_info a:visited
 {
 	color: #1a1220;
@@ -186,6 +280,7 @@ body
 {
 	text-decoration: underline;
 }
+*/
 
 .login table, .register table, .ownpage table, .edit_poem table, 
 .edit_profile table, .poet_info table
@@ -273,14 +368,23 @@ textarea
 	margin-right: 20px;
 }
 
+/*
 .poet_name a:link, .poet_name a:visited
 {
 	color: #000cd0;
-	text-decoration: none
+	color: blue;
 }
+
+.poet_name a:hover
+{
+	color: red;
+	text-decoration: none;
+}
+*/
 
 .poem_header_hidden
 {
+	font-family: "Zapf Chancery", cursive;
 	color: #db0000;
 	font-size: 150%;
 }
@@ -292,6 +396,7 @@ textarea
 
 .poem_header
 {
+	font-family: "Zapf Chancery", cursive;
 	color: #534a4a;
 	font-size: 150%;
 }
@@ -304,6 +409,8 @@ textarea
 .poem
 {
 	font-family: Verdana, Genova, Arial, sans-serif;
+	padding-left: 15px;
+	margin-top: -15px;
 	color: #1a1220;
 }
 
@@ -312,9 +419,11 @@ textarea
 	font-family: Verdana, Genova, Arial, sans-serif;
 	color: #db0000;
 }
+
 .poem_added
 {
 	font-size: 70%;
+	padding-top: 15px;
 }
 
 /* Div where is link where we can go back to user poems from
@@ -329,15 +438,7 @@ textarea
 /* Link where we can go back to user poems from his/her profile page */
 .back_to_poems a:link, .back_to_poems a:visited
 {
-	color: black;
-	text-decoration: none;
 	text-align: center;
-}
-
-/* Link where we can go back to user poems from his/her profile page */
-.back_to_poems a:hover
-{
-	text-decoration: underline;
 }
 
 /* Bottom note what is shown on profile editing where we tell that
@@ -373,21 +474,6 @@ textarea
 	font-size: 100%;
 }
 
-.mainpage_div a:link, .mainpage_div a:visited,
-.news a:link, .news a:visited,
-.privacy_policy a:link, .privacy_policy a:visited,
-.random_poem a:link, .random_poem a:visited,
-{
-	color: black;
-}
-
-.mainpage_div a:hover, .news a:hover,
-.privacy_policy a:hover, .random_poem a:hover
-{
-	color: red;
-	text-decoration: none;
-}
-
 .css
 {
 	border: 0px;
@@ -403,7 +489,8 @@ textarea
 .poems .title_table
 {
 	margin-left: 0px;
-	font-size: 80%;
+	font-size: 86%;
+	padding-left: 15px;
 	width: 100%;
 }
 
@@ -426,4 +513,15 @@ textarea
 .rss
 {
 	border: 0px;
+}
+
+.adding_form
+{
+	margin-top: -13px;
+}
+
+.inner_textblock
+{
+	padding-left: 30px;
+	margin-top: -18px;
 }

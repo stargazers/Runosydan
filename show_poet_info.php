@@ -33,6 +33,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		$cUsers = new CUsers( $db );
 
 		echo '<div class="poet_info">';
+		echo '<div class="textblock">';
+		echo '<h3>Runoilijan tiedot</h3>';
+		echo '</div>';
+
 
 		// Get user ID.
 		if( isset( $data['id'] ) )
