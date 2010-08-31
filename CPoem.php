@@ -89,7 +89,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 			$title = mysql_real_escape_string( $data['title'] );
 			$poem = mysql_real_escape_string( $data['poem'] );
 
-			$not_good = array( '"', '\'', '\\', '<', '>' );
+			$not_good = array( '<', '>' );
 			$title = str_replace( $not_good, '', $title );
 			$poem = str_replace( $not_good, '', $poem );
 
@@ -106,6 +106,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 				. $s['id'] . '", "' . $title . '", "'
 				. $poem . '", "' . $visible . '", "'
 				. date( 'Y-m-d H:i:s' ) . '");';
+
 
 			$ret = $this->db->query( $q );
 		}
