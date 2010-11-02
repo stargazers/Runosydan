@@ -340,9 +340,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 		echo '</head>';
 		echo '<body>';
 
+		// Now we use jpg file instead of text because used font
+		// does not seem to work in IE and Ubuntu by default without
+		// additional font installations, soooooo it is much easier to
+		// just use a bitmap image.
 		echo '<div class="top_banner">';
-		echo '<h2>Runosydän</h2>';
-		echo '<p>Sanoja suoraan sydämestä</p>';
+		echo '<img src="graphics/runosydan_logo.jpg" />';
 		echo '</div>';
 	}
 
