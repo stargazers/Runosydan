@@ -28,7 +28,7 @@ echo '<h3>Rekisteriseloste</h3>';
 
 echo '<h4>1. Rekisterinpitäjä</h4>';
 echo '<p>Aleksi Räsänen<br>';
-echo 'Sienitie 3 A15<br>';
+echo 'Keltinmäentie 27 A 21<br>';
 echo '40640 Jyväskylä<br>';
 echo '044-312 2385</p>';
 
