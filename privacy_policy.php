@@ -28,8 +28,8 @@ echo '<h3>Rekisteriseloste</h3>';
 
 echo '<h4>1. Rekisterinpitäjä</h4>';
 echo '<p>Aleksi Räsänen<br>';
-echo 'Timmertjärnsvägen 13 A 1 tr 61-1007<br>';
-echo '66831 Ed, Sweden<br>';
+echo 'Latolankatu 23 M 85<br>';
+echo '80160 Joensuu<br>';
 echo '+35844 0988 880</p>';
 
 echo '<h4>2. Rekisteriasioita hoitava yhteyshenkilö</h4>';
